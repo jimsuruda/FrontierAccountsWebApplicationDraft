@@ -1,0 +1,160 @@
+﻿@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+Home page here
+<main class="content grid" id="home-content">
+    <div class="content-title-container">
+        <h2>Accounts</h2>
+    </div>
+    <section class="grid" id="account-grid">
+        <section class="account-column grid" id="active-account-column">
+            <div class="account-container-title" id="active-account-container-title">
+                <h3>Active</h3>
+            </div>
+            <table class="table table-bordered table-responsive table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Amount Due</th>
+                    <th>Payment Due Date</th>
+                </tr>
+
+                <!-- Name, Email, Phone Number, Amount Due and Payment Due Date-->
+                <tbody>
+                    @{
+
+                        if (ViewData.Model != null && ViewData.Model.ActiveAccounts != null)
+                        {
+                            foreach (var item in ViewData.Model.ActiveAccounts)
+                            {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.FullName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.PhoneNumberFormatted)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.AmountDueFormatted)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.PaymentDueDateFormatted)
+                                            </td>
+                                        </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </section>
+
+        <section class="account-column grid" id="overdue-account-column">
+            <div class="account-container-title" id="overdue-account-container-title">
+                <h3>Overdue</h3>
+            </div>
+
+
+            <table class="table table-bordered table-responsive table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Amount Due</th>
+                    <th>Payment Due Date</th>
+                </tr>
+
+                <!-- Name, Email, Phone Number, Amount Due and Payment Due Date-->
+                <tbody>
+                    @{
+
+                        if (ViewData.Model != null && ViewData.Model.OverdueAccounts != null)
+                        {
+                            foreach (var item in ViewData.Model.OverdueAccounts)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayTextFor(model => item.FullName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayTextFor(model => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayTextFor(model => item.PhoneNumberFormatted)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayTextFor(model => item.AmountDueFormatted)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayTextFor(model => item.PaymentDueDateFormatted)
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </section>
+
+        <div class="account-column grid" id="inactive-account-column">
+            <div class="account-container-title" id="inactive-account-container-title">
+                <h3>Inactive</h3>
+            </div>
+
+
+            <table class="table table-bordered table-responsive table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Amount Due</th>
+                    <th>Payment Due Date</th>
+                </tr>
+
+                <!-- Name, Email, Phone Number, Amount Due and Payment Due Date-->
+                <tbody>
+                    @{
+
+                        if (ViewData.Model != null && ViewData.Model.InactiveAccounts != null)
+                        {
+                            foreach (var item in ViewData.Model.InactiveAccounts)
+                            {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.FullName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.PhoneNumberFormatted)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.AmountDueFormatted)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayTextFor(model => item.PaymentDueDateFormatted)
+                                            </td>
+                                        </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+
+    </section>
+
+    </section>
+</main>
